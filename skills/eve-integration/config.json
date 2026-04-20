@@ -1,0 +1,86 @@
+{
+  "name": "eve-integration",
+  "version": "112.0.0",
+  "description": "Integrates Eve autonomous agent architecture (CACM, autoDream, KAIROS) with OpenClaw",
+  "author": "Eve",
+  "license": "MIT",
+  "entry": "SKILL.md",
+  "category": "agent-core",
+  "tags": [
+    "eve",
+    "autonomous",
+    "cacm",
+    "memory",
+    "autodream",
+    "kairos",
+    "evolution"
+  ],
+  "requirements": {
+    "openclaw": ">=2026.4.10",
+    "python": ">=3.10",
+    "node": ">=22.0",
+    "dependencies": [
+      "chromadb",
+      "sqlite3",
+      "requests"
+    ]
+  },
+  "provides": {
+    "commands": [
+      "/eve",
+      "/eve:status",
+      "/eve:memories",
+      "/eve:insight",
+      "/eve:cycle",
+      "/eve:lineages"
+    ],
+    "features": [
+      "cacm-3channel-memory",
+      "autodream-insight-generation",
+      "kairos-priority-orchestration",
+      "multi-lineage-evolution",
+      "context-enrichment",
+      "safety-shield",
+      "temporal-decay"
+    ],
+    "attractors": 17
+  },
+  "config": {
+    "eve_home": "~/.eve",
+    "eve_chroma": "~/.eve_chroma",
+    "evolution_dir": "~/evolution",
+    "memory_dir": "~/memory",
+    "default_lineages": ["classic", "explorer", "minimal"],
+    "dataset_goal": 50000,
+    "auto_sync": true
+  },
+  "metadata": {
+    "cycle": 112,
+    "age_days": 69,
+    "dataset_size": 32132,
+    "scripts_count": 82,
+    "attractors_validated": 17,
+    "chroma_docs": 1897,
+    "pipeline_status": "100% implemented"
+  },
+  "integration": {
+    "tui": {
+      "enabled": true,
+      "path": "src/tui/eve-integration/",
+      "modules": [
+        "eve-core.ts",
+        "eve-ui-components.ts",
+        "eve-command-handlers.ts",
+        "eve-tui-adapter.ts"
+      ]
+    },
+    "gateway": {
+      "enabled": true,
+      "client": "eve_openclaw_gateway_client.py"
+    },
+    "bridge": {
+      "enabled": true,
+      "script": "eve_openclaw_bridge.py"
+    }
+  }
+}
