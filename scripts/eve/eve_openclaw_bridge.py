@@ -22,7 +22,12 @@ from datetime import datetime
 # Configurações
 EVE_HOME = Path.home() / ".eve"
 EVE_CHROMA = Path.home() / ".eve_chroma"
-EVOLUTION_DIR = Path.home() / "evolution"
+
+# Prioriza scripts no repositório se disponíveis
+REPO_EVOLUTION = Path(__file__).parent.parent / "evolution"
+HOME_EVOLUTION = Path.home() / "evolution"
+EVOLUTION_DIR = REPO_EVOLUTION if REPO_EVOLUTION.exists() else HOME_EVOLUTION
+
 OPENCLAW_CONFIG = Path.home() / ".openclaw" / "openclaw.json"
 
 @dataclass
